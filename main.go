@@ -1,6 +1,7 @@
 package main
 
 import (
+	"booking_app/mapper"
 	"booking_app/util"
 	"bufio"
 	"fmt"
@@ -22,7 +23,10 @@ func main() {
 		arr = append(arr, temps)
 	}
 	updated := util.UpdateFunc(arr)
-	for index, el := range updated {
-		fmt.Printf("at ind: %v , %v\n", index, el)
+	mappedValues := mapper.MakeMap(updated)
+
+	for index, _ := range mappedValues {
+		firstName, lastName := mapper.GetMapValues(mappedValues, index)
+		fmt.Printf("at %v: %v , %v\n", index, firstName, lastName)
 	}
 }
