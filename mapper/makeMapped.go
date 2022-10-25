@@ -4,15 +4,21 @@ import (
 	"strings"
 )
 
-func MakeMap(inpSlice []string) []map[string]string {
-	var ansMap = make([]map[string]string, 0)
+type userInfo struct {
+	firstName string
+	lastName  string
+	serial    int
+}
 
-	for _, el := range inpSlice {
+func MakeMap(inpSlice []string) []userInfo {
+
+	var ansMap = make([]userInfo, len(inpSlice))
+
+	for ind, el := range inpSlice {
 		splittedNames := strings.Split(el, " ")
-		tempMap := make(map[string]string)
-		tempMap["firstName"] = splittedNames[0]
-		tempMap["lastName"] = splittedNames[len(splittedNames)-1]
-		ansMap = append(ansMap, tempMap)
+		ansMap[ind].firstName = splittedNames[0]
+		ansMap[ind].lastName = splittedNames[len(splittedNames)-2]
+		ansMap[ind].serial = ind
 	}
 	return ansMap
 }

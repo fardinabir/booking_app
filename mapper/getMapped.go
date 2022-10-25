@@ -1,5 +1,8 @@
 package mapper
 
-func GetMapValues(inpMap []map[string]string, index int) (string, string) {
-	return inpMap[index]["firstName"], inpMap[index]["lastName"]
+import "time"
+
+func GetMapValues(inpMap []userInfo, index int) (string, string, int) {
+	time.Sleep(10 * time.Second)
+	return inpMap[index].firstName, inpMap[index].lastName, inpMap[index].serial
 }
