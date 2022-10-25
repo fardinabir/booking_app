@@ -4,15 +4,15 @@ import (
 	"strings"
 )
 
-type userInfo struct {
+type UserInfo struct {
 	firstName string
 	lastName  string
 	serial    int
 }
 
-func MakeMap(inpSlice []string) []userInfo {
+func MakeMap(inpSlice []string) []UserInfo {
 
-	var ansMap = make([]userInfo, len(inpSlice))
+	var ansMap = make([]UserInfo, len(inpSlice))
 
 	for ind, el := range inpSlice {
 		splittedNames := strings.Split(el, " ")
